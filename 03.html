@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="file" name="fileupload" id="fileupload" value="">
+    <button type="button" id="upload-button" onclick="saveData()" name="button">upload</button>
+    <script type="text/javascript">
+      async function saveData(){
+        console.log("UploadPressed");
+        let formData = new FormData();
+        var fileupload = document.getElementById('fileupload').value;
+        console.log(fileupload);
+        formData.append('submitTexster', fileupload.files[0]);
+        await fetch('/uploader.php',{method:"POST",body:formData});
+      }
+    </script>
+  </body>
+</html>

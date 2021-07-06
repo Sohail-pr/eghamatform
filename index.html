@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Bootstrap MultiStep Form</title>
+      <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./style.css">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- MultiStep Form -->
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form id="msform" action="./upload.php">
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active">اطلاعات فردی</li>
+                <li>مدارک</li>
+                <li>تایید و ثبت نهایی</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset>
+                <h4 class="waringngdetailtext">تمامی اطلاعات را دقیقا بصورت در شده در پاسپورت خود که دارای مهر ورود به ترکیه است پر کنید .</h4>
+                <input id="userGivenName"       class="userInputTextControl" style="text-align: right;" type="text" name="name" placeholder="نام به لاتین" />
+                <input id="userGivenFamilyName" class="userInputTextControl" style="text-align: right;"type="text" name="familyName" placeholder="نام خانوادکی به لاتین" />
+                <input id="userGivenFatherName" class="userInputTextControl" style="text-align: right;"type="text" name="fatherName" placeholder="نام پدر به لاتین" />
+                <input id="userGivenMotherName" class="userInputTextControl" style="text-align: right;"type="text" name="motherName" placeholder="نام مادر به لاتین" />
+                <input id="userGivenPassportNumber" class="userInputTextControl" style="text-align: right;"type="text" name="passportNumber" data-inputmask="'mask': 'A 99999999'" placeholder="شماره پاسپورت" />
+                <input id="userGivenCellPhoneNumber" class="userInputTextControl" style="text-align: right;"type="text" name="cellPhoneNumber" data-inputmask="'mask': '(999) 999 9999'" placeholder="شماره تلفن موبایل ترک" />
+                <input id="userGivenAddress" class="userInputTextControl" type="address" style="text-align: right;"name="adress" placeholder="آدرس سکونت در ترکیه" />
+                <input id="userGivenBirthYear" class="userInputTextControl" style="text-align: right;"type="text" id="myinput" data-inputmask="'mask': '9 9 9 9'"name="birthYear" placeholder="تاریخ تولد به میلادی" />
+                <button type="button" id="insurance-price" style="display:none;" class="btn btn-outline-info btn-block"><i class="bi-umbrella"></i>لطفا از کیبورت انگلیسی استفاده کنید</button>
+                <input type="button" name="next" class="next action-button" value="بعدی"/>
+            </fieldset>
+            <fieldset>
+                <h4 class="waringngdetailtext">برای کیفیت بهتر مدارک اگر اسکن نیستند از فلش گوشی استفاده کنید</h4>
+                <div class="profile-images-card">
+                    <div class="profile-images">
+                        <img src="images/personalImageDefualt.png" id="personalimage-upload-img">
+                    </div>
+                    <div class="custom-file">
+                        <label for="personalimage-fileupload">عکس پرسنلی پشت سفید</label>
+                        <input type="file" id="personalimage-fileupload">
+                    </div>
+              </div>
+
+              <div class="profile-images-card">
+                  <div class="profile-images">
+                    <img src="images/passportDefualt.png" id="passport-upload-img">
+                  </div>
+                  <div class="custom-file">
+                    <label for="passport-fileupload">اسکن صفحه اول پاسپورت</label>
+                    <input type="file" id="passport-fileupload">
+                  </div>
+              </div>
+
+              <div class="profile-images-card">
+                  <div class="profile-images">
+                    <img src="images/entranceStampDefualt.png" id="entrasceStamp-upload-img">
+                  </div>
+                  <div class="custom-file">
+                    <label for="entrascestamp-fileupload">اسکن آخرین مهر ورود به ترکیه</label>
+                    <input type="file" id="entrascestamp-fileupload">
+                  </div>
+              </div>
+                <table class="table table-striped" style="text-align: center;">
+                    <tbody style="text-align: center;">
+                      <tr>
+                        <td scope="row"><label style="float:right" style="float:right" for="magicBtn2">درخواست چاپ ۴ قطعه عکس پرسنی</label></td>
+                        <td scope="row" ><input style="width: auto; height: auto;" id="magicBtn2" type="checkbox"></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row"><label style="float:right" for="magicBtn3">واریز حق خاک و پول کارت اقامت توسط مجموعه</label></td>
+                        <td scope="row" ><input id="magicBtn3" type="checkbox"></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row"><label style="float:right" for="magicBtn4">تنظیم اجاره نامه نوترشده</label></td>
+                        <td scope="row" ><input id="magicBtn4" type="checkbox"></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+                  <div class="profile-images-card">
+                    <div class="profile-images">
+                      <img src="images/receipt-logo.png" id="PaymentReceipt-upload-img">
+                    </div>
+                    <div class="custom-file">
+                      <label style="color: red;" for="PaymentReceipt-fileupload">بارگذاری رسید واریز نقدی</label>
+                      <input type="file" id="PaymentReceipt-fileupload">
+                    </div>
+                </div>
+
+                <input type="button" name="previous" class="previous action-button-previous" value="قبلی"/>
+                <input type="button" name="next" class="next action-button" value="بعدی"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="waringngdetailtext">تایید اطلاعات</h2>
+                <table class="table table-striped" style="text-align: center; direction: rtl;">
+                    <thead style="text-align: center;">
+                      <tr >
+                        <td scope="col">موضوع</td>
+                        <td scope="col">شرح</td>
+                        <td scope="col">تایید</td>
+                      </tr>
+                    </thead>
+                    <tbody style="text-align: center;">
+                      <tr>
+                        <td scope="row">نام</td>
+                        <td id="ConfirmNameText"class="resultTableEnglishDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">نام خانوادگی</td>
+                        <td id="ConfirmFamilyNameText" class="resultTableEnglishDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">نام پدر</td>
+                        <td id="ConfirmFatherNameText"class="resultTableEnglishDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">نام مادر</td>
+                        <td id="ConfirmMotherNameText"class="resultTableEnglishDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">شماره پاسپورت</td>
+                        <td id="ConfirmPassportNumber"class="resultTableEnglishDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">موبایل ترک</td>
+                        <td  id="ConfirmCellPhoneNumberText"class="resultTableEnglishDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">سال تولد به میلادی</td>
+                        <td  id="ConfirmBirthYearText" class="resultTableEnglishDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">عکس پرسنلی</td>
+                        <td   scope="row">
+                          <div class="profile-images">
+                            <img src="images/NotUploaded-personalImageDefualt.png" id="confirmPersonalImage-upload-img">
+                          </div>
+                        </td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+
+                        <td scope="row">صفحه اول پاسپورت</td>
+                        <td   scope="row">
+                          <div class="profile-images">
+                            <img src="images/NotUploaded-passportDefualt.png" id="confirnpassport-upload-img">
+                          </div>
+                        </td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">آخرین مهر ورود به ترکیه</td>
+                        <td   scope="row">
+                          <div class="profile-images">
+                            <img src="images/NotUploaded-entranceStampDefualt.png" id="confirmentrasceStamp-upload-img">
+                          </div>
+                        </td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">چاپ عکس بایومتریک</td>
+                        <td id="ConfirmImageOrder" class="resultTablePersianDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">واریز حق خاک توسط مجموعه</td>
+                        <td id="ConfirmTaxPayOrder" class="resultTablePersianDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+
+                      <tr>
+                        <td scope="row">تنظیم اجاره نامه توسط مجموعه</td>
+                        <td id="ConfirmContractSignedOrder" class="resultTablePersianDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+                      <tr>
+                        <td scope="row">آدرس محل سکونت در ترکیه</td>
+                        <td id="ConfirmAddressText" class="resultTablePersianDetails" scope="row"></td>
+                        <td scope="row" ><input Type="checkbox" required></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="profile-images-card">
+                    <div class="profile-images">
+                      <img src="images/NotUploaded-receipt-logo.png" id="PaymentReceipt-upload-img">
+                    </div>
+                </div>
+
+                <input type="button" name="previous" class="previous action-button-previous" value="قبلی"/>
+                <input type="submit" name="submit" class="submit action-button" value="ثبت نهایی"/>
+            </fieldset>
+            <button type="submit" name="submit" class="">SAVE</button>
+        </form>
+    </div>
+</div>
+<!-- /.MultiStep Form -->
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+<script  src="./scripts.js"></script>
+<script src="./syncronizer.js"></script>
+
+</body>
+</html>
